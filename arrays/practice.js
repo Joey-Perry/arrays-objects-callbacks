@@ -127,8 +127,17 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 */
 
 //Code Here
-
-
+function divider(numbersArray) {
+  let evens = []; let odds =[];
+  for (let i = 0; i < numbersArray.length; i++) {
+    if (numbersArray[i]%2 === 0){
+      evens.push(numbersArray[i]);
+    } else {
+      odds.push(numbersArray[i]);
+    }
+  }
+  return [evens, odds];
+}
 
 ////////// PROBLEM 7 //////////
 
@@ -149,7 +158,16 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
-
+function finder(arr) {
+  let randomNumber = getRandomArbitrary();
+  let isInFinder = false;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === randomNumber) {
+      isInFinder = true;
+    }
+  }
+  return isInFinder;
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -178,7 +196,27 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
+function removeItem(myGroceryList, itemToRemove) {
+  if (!myGroceryList || !itemToRemove) {
+    return [];
+  } else {
+    for (let i = 0; i < myGroceryList.length; i++) {
+      if (itemToRemove === myGroceryList[i]) {
+        myGroceryList.splice(i,1);
+      }
+    }
+    return myGroceryList;
+  }
+}
 
+function addItem(myGroceryList, itemToAdd) {
+  if (!myGroceryList || !itemToAdd) {
+    return [];
+  } else {
+    myGroceryList.push(itemToAdd);
+    return myGroceryList;
+  }
+}
 
 
 ////////// PROBLEM 9 //////////
@@ -188,7 +226,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
-
+function maker() {
+  let arr = [];
+  for (let i = 1; i < 216; i++) {
+    arr.push(i);
+  }
+  return arr;
+}
 
 
 ////////// PROBLEM 10 //////////
@@ -204,7 +248,13 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
-
+function addTen(numbers) {
+  arrPlusTen = [];
+  for (let i = 0; i < numbers.length; i++) {
+    arrPlusTen.push((numbers[i]*1) + 10);
+  }
+  return arrPlusTen;
+}
 
 
 ////////// PROBLEM 11 //////////
@@ -229,7 +279,9 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function longer(arr1, arr2) {
+  return ( arr1.length > arr2.length ? arr1 : arr2 );
+}
 
 
 /*
@@ -241,7 +293,17 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+function both(arr1, arr2) {
+  let valuesInBoth = [];
+  for(let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        valuesInBoth.push(arr1[i]);
+      }
+    }
+  }
+  return valuesInBoth;
+}
 
 
 ////////// PROBLEM 12 //////////
@@ -282,7 +344,16 @@ var colt = {
 */
 
 //Code Here
+function fillArray(arr, name) {
+  arr.push(name);
+}
 
+fillArray(devMountainEmployees, joe);
+fillArray(devMountainEmployees, cahlan);
+fillArray(devMountainEmployees, ryan);
+fillArray(devMountainEmployees, colt);
+
+console.log(devMountainEmployees.length);
 
 
 /*
@@ -291,8 +362,11 @@ var colt = {
 */
 
 //Code Here
-
-
+for (let i = 0; i < devMountainEmployees.length; i++) {
+  if (devMountainEmployees[i].name === 'Cahlan') {
+    devMountainEmployees.splice(i,1);
+  }
+};
 
 ////////// PROBLEM 13 //////////
 
@@ -303,7 +377,7 @@ var colt = {
 */
 
 //Code Here
-
+let users = [];
 
 
 /*
@@ -324,7 +398,21 @@ var user1 = {
 // Do not edit the code above.
 
 //Code Here
+function userCreator(name, email, password, username) {
+  return {
+    name: name,
+    email: email,
+    password: password,
+    username: username,
+  }
+}
 
+user2 = userCreator('John', 'John@example.com', 'johniscool', 'john316');
+user3 = userCreator('Louie', 'louie@kingme.com', 'rulingisfun', 'louiexiv');
+
+fillArray(users, user1);
+fillArray(users, user2);
+fillArray(users, user3);
 
 
 /*
@@ -338,7 +426,11 @@ var user1 = {
 */
 
 //Code Here
-
+for (let i = 0; i < users.length; i++) {
+  if (users[i].email === 'mark.mciver@devmounta.in') {
+    users.splice(i,1);
+  }
+}
 
 
 /*
