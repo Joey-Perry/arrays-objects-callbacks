@@ -124,17 +124,27 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
-function uniq(arr, cb) {
-  let myObj = {};
+
+function hasValue(arr, value) {
+  let result = false;
   for (let i = 0; i < arr.length; i++) {
-    if (myObj[arr[i]]) {
-      arr.splice(i,1);
-    } else {
-      myObj[arr[i]] = true;
+    if (arr[i] === value) {
+      result = true;
     }
   }
-  cb(arr);
+  return result;
 }
+
+function uniq(arr, cb) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!hasValue(newArr, arr[i])) {
+      newArr.push(arr[i]);
+    }
+  }
+  cb(newArr);
+}
+
 // Do not edit the code below.
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
